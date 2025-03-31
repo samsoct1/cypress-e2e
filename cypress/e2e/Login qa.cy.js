@@ -53,14 +53,11 @@ describe('positive test case', () => {
     it('Reset password mail ', () => {
         cy.visit('https://qa.d3skkfzjfy3kf2.amplifyapp.com/'); 
         cy.contains('span', 'Forgot Password?').click()
-        cy.wait(1000)
+        cy.wait(2000)
         cy.get('input[type="text"]').type('employeetest46@gmail.com');
         cy.get('button[type="submit"]').click()
         cy.contains('span','Password reset link has been sent to your email')
-    
-
-      
-    });
+     });
   });
   
   
