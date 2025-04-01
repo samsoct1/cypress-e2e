@@ -1,4 +1,4 @@
-// Log in successfully
+// Log in successfully 
 describe('positive test case', () => {
     it('Visits Acuity login page', () => {
       cy.visit('https://qa.d3skkfzjfy3kf2.amplifyapp.com')
@@ -8,12 +8,16 @@ describe('positive test case', () => {
            cy.wait(2000)
            cy.get('input[type="password"]').type('test@111')
            console.log('Test execution started');  
+// Check the box
+           cy.get('input[type="checkbox"]').check().should('be.checked'); // Check the box
+           cy.wait(2000)
+           
            
 // button clicking funtionality
 
            cy.get('button[type="submit"]').click() 
            cy.wait(2000)
- // searching the keyword         
+ //  navigating to the search box   -searching the keyword     
            cy.get('input[placeholder="Search"]') 
            .should('be.visible')
            .type('Digiryte PVT LTD');
@@ -57,7 +61,22 @@ describe('positive test case', () => {
         cy.get('input[type="text"]').type('employeetest46@gmail.com');
         cy.get('button[type="submit"]').click()
         cy.contains('span','Password reset link has been sent to your email')
+
+// validation message
+
+        describe('Login Validation', () => {
+          it('shows validation for empty username and password', () => {
+            cy.visit('https://qa.d3skkfzjfy3kf2.amplifyapp.com/'); 
+
+            cy.wait(3000)
+            cy.get('button[type="submit"]').click(); 
+        
+            cy.contains('Username is required').should('be.visible');
+            cy.contains('Password is required').should('be.visible');
+
+// Remember me
+
      });
   });
-  
-  
+   });
+ });  
